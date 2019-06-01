@@ -6,6 +6,8 @@ const app = express();
 
 app.use(express.json());
 
+console.log("using the first script for NODEJS");
+
 // dummmy database
 const database = {
     courses : [
@@ -20,10 +22,22 @@ const database = {
       {
         id : 3,
         name: "NodeJS"
+      },
+      {
+        id : 4,
+        name : "Anshul Specials"
       }
     ]
 };
 
+
+// first logging middleware
+app.use((req, res, next) => {
+  console.log(`REQUEST OBJ \n: ${req}`);
+  // console.log("req.body: ", req.headers.name);
+  console.log();
+  next();
+});
 
 // first route
 app.get('/', (req, res) => {
@@ -52,6 +66,7 @@ app.post('/courses/', (req, res) => {
   database.courses.push(newCourse);
   res.status(201).send(newCourse);
 });
+
 
 
 // setting the port
