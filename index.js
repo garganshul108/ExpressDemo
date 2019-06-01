@@ -26,13 +26,22 @@ const database = {
 
 // first route
 app.get('/', (req, res) => {
-  res.status(200).send(database);
-})
+  res.status(500).send("Bad Request");
+});
+
+app.get('/courses', (req, res) => {
+  res.status(200).send(database.courses);
+});
+
+app.get('/courses/:id', (req, res) =>{
+  res.status(200).send(database.courses[req.params.id + 1]);
+});
+
 
 
 
 // setting the port
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-   console.log(`Listening to port: ${port}`);
+   console.log(`Listening to port: ${port}...`);
 });
