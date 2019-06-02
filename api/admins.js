@@ -1,8 +1,42 @@
 const express = require('express');
 const router = express.Router();
 
+
+/**
+ * 
+
+// first route
+app.get('/', (req, res) => {
+  res.status(500).send("Bad Request");
+});
+
+app.get('/courses', (req, res) => {
+  res.status(200).send(database.courses);
+});
+
+app.get('/courses/:id', (req, res) =>{
+  const index = parseInt(req.params.id) - 1;
+  res.status(200).send(database.courses[index]);
+});
+
+
+
+// post routes
+app.post('/courses/', (req, res) => {
+  const data = req.body;
+  let newCourse = {
+    id : database.courses.length + 1,
+    name : req.body.name
+  };
+
+  database.courses.push(newCourse);
+  res.status(201).send(newCourse);
+});
+
+
+ */
 // parsing the params.body to json
-router.use(express.json());
+// router.use(express.json());
 
 const dummyDB = [
     {
@@ -73,3 +107,5 @@ router.get('/:name', (request, response) => {
 router.post('/', (request, response) => {
     
 });
+
+module.exports = router;
