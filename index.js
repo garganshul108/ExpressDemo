@@ -1,4 +1,4 @@
-// this is the dummy db branch 
+// this is the master branch dated 2 Jun 2019
 // includes the express function from the express module
 const express = require('express');
 // returns the express function object to app
